@@ -2,7 +2,7 @@
 public class SistemaDeMedida {
 
     public static void main(String[] args) {
-        String sigla = "A";
+        String sigla = "P";
         //refatorando para swich case:
         switch (sigla) {
             case "P": {
