@@ -1,17 +1,46 @@
 package Candidatura;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 public class processoSeletivo {
     public static void main(String[] args) {
-        selecaoDeCandidatos();
-        imprimirSelecionados();
+        String [] candidatos = {"Felipe","Marcia","Julia","Paulo","Augusto"};
+        for(String candidato : candidatos){
+            entrandoEmContato(candidato);
+          }
+        }
+         static void entrandoEmContato(String candidato){
+            int tentativasRealizadas = 1;
+            boolean continuarTentando = true;
+            boolean atendeu = false;
+            do { 
+                //elas precisaram sofrer alterações
+                atendeu = atender();
+                continuarTentando = !atendeu;
+                if(continuarTentando)
+                tentativasRealizadas++;
+                else
+                System.out.println("CONTATO REALIZADO COM SUCESSO");
+            } while (continuarTentando && tentativasRealizadas < 3  );
+            if(atendeu)
+            System.out.println("CONSEGUIMOS CONTATO COM " + candidato + " NA " + tentativasRealizadas + "TENTATIVA" );
+            else
+            System.out.println("NÃO CONSEGUIMOS CONTATO COM " + candidato + " , NÚMERO MÁXIMO DE TENTATIVAS " + tentativasRealizadas + "REALIZADA");
+
+        }
+         
+        //método axuliar
+        static boolean atender(){
+            return new Random().nextInt(3)==1;
+        }
+        //selecaoDeCandidatos();
+        //imprimirSelecionados();
         /*analisarCandidato(1900.0);
         analisarCandidato(2200.0);
         analisarCandidato(2000.0);*/
-    }
-    static void imprimirSelecionados() {
-        String [] candidatos = {"Felipe","Marcia","Julia","Paulo","Augusto"};
-        System.out.println("Imprimindo a lista de canidatos informando o índice do elemento");
+    
+    //static void imprimirSelecionados() {
+        
+        /*System.out.println("Imprimindo a lista de canidatos informando o índice do elemento");
         for(int indice=0; indice < candidatos.length;indice++) {
             System.out.println("Ocandidato de nº " + (indice+1) + " é " + candidatos[indice]);
         }
