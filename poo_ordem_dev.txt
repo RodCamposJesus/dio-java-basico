@@ -1,0 +1,3 @@
+Etapa do desenvolvimento:
+Primeiro cria o molde
+Depois constroi os objetos baseados nesse molde.
